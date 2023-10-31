@@ -4,12 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eafb9396-6239-42de-9462-da428c27e6b4" name="Changes" comment="feat: Client">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="eafb9396-6239-42de-9462-da428c27e6b4" name="Changes" comment="feat: Read">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kennarddh/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kennarddh/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/kennarddh/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kennarddh/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,8 +34,14 @@
       </list>
     </option>
   </component>
+  <component name="FormatOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="OptimizeOnSaveOptions">
+    <option name="myRunOnSave" value="true" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "customColor": "",
@@ -55,7 +57,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main"
+    "git-widget-placeholder": "main",
+    "settings.editor.selected.configurable": "actions.on.save"
   }
 }]]></component>
   <component name="RunManager" selected="Gradle.java-test-async-socket [client]">
@@ -149,7 +152,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698716613153</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="feat: Read">
+      <option name="closed" value="true" />
+      <created>1698717947962</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1698717947962</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -157,6 +168,7 @@
     <MESSAGE value="feat: Server" />
     <MESSAGE value="feat: Client gradle task" />
     <MESSAGE value="feat: Client" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Client" />
+    <MESSAGE value="feat: Read" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: Read" />
   </component>
 </project>
