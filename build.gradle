@@ -6,14 +6,17 @@ apply plugin: 'java'
 
 version = '1.0'
 
-ext {
-    javaMainClass = "kennarddh.Main"
-}
-
 sourceSets.main.java.srcDirs = ["src/"]
 
-application {
-    mainClassName = javaMainClass
-}
 sourceCompatibility = JavaVersion.VERSION_17
 targetCompatibility = JavaVersion.VERSION_17
+
+tasks.register("client", JavaExec) {
+    mainClass.set("kennarddh.Client")
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+tasks.register("server", JavaExec) {
+    mainClass.set("kennarddh.Client")
+    classpath = sourceSets.main.runtimeClasspath
+}
