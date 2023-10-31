@@ -5,6 +5,8 @@ import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.channels.CompletionHandler;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 public class Client {
     public static void main(String[] args) throws InterruptedException {
@@ -26,24 +28,18 @@ public class Client {
 
             ByteBuffer buffer = ByteBuffer.wrap("Hello, world!".getBytes());
 
-            clientChannel.write(buffer,null, new CompletionHandler<Integer,Void>() {
-                @Override
-                public void completed(Integer bytesRead, Void attachment) {
-                    if (bytesRead > 0) {
-                        // Write the data back to the AsynchronousSocketChannel object
-                        clientChannel.write(ByteBuffer.wrap(new byte[bytesRead]));
-                        System.out.println("READ DATA "+bytesRead);
-                    }
-                }
+            Future<Integer> writeResult = clientChannel.write(buffer);
 
-                @Override
-                public void failed(Throwable exc, Void attachment) {
-                    throw new RuntimeException(exc);
-                }
-            });
-//                clientChannel.write(buffer);
-
-            System.out.println("DATA SENT");
+            try {
+                writeResult.get();
+                System.out.println("DATA SENT");
+                
+                ByteBuffer buffer2 = ByteBuffer.wrap("Hello, world!".getBytes());
+                clientChannel.write(buffer2);
+                System.out.println("DATA2 SENT");
+            } catch (InterruptedException | ExecutionException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         @Override

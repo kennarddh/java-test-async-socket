@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eafb9396-6239-42de-9462-da428c27e6b4" name="Changes" comment="feat: Read">
+    <list default="true" id="eafb9396-6239-42de-9462-da428c27e6b4" name="Changes" comment="chore: Format on save">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kennarddh/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kennarddh/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/kennarddh/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/kennarddh/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +91,7 @@
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
+        <option name="scriptParameters" value="--stacktrace" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -160,7 +162,15 @@
       <option name="project" value="LOCAL" />
       <updated>1698717947962</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="chore: Format on save">
+      <option name="closed" value="true" />
+      <created>1698717981370</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1698717981370</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -169,6 +179,7 @@
     <MESSAGE value="feat: Client gradle task" />
     <MESSAGE value="feat: Client" />
     <MESSAGE value="feat: Read" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: Read" />
+    <MESSAGE value="chore: Format on save" />
+    <option name="LAST_COMMIT_MESSAGE" value="chore: Format on save" />
   </component>
 </project>

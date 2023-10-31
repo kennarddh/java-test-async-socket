@@ -9,6 +9,7 @@ import java.nio.channels.CompletionHandler;
 import java.nio.charset.Charset;
 
 public class Server {
+    @SuppressWarnings("InfiniteLoopStatement")
     public static void main(String[] args) throws InterruptedException {
         try (AsynchronousServerSocketChannel serverSocketChannel = AsynchronousServerSocketChannel.open()) {
             // Bind the AsynchronousServerSocketChannel object to a local address and port
@@ -20,7 +21,7 @@ public class Server {
 
             System.out.println("TCP Server Ready");
 
-            // Start accepting connections from clients
+            // Start accepting connections from 1 client
             serverSocketChannel.accept(null, new ConnectionHandler());
 
             Thread.currentThread().join();
@@ -50,8 +51,8 @@ public class Server {
     private static class ReadCompletionHandler implements CompletionHandler<Integer, ByteBuffer> {
         AsynchronousSocketChannel clientChannel;
 
-        public ReadCompletionHandler(AsynchronousSocketChannel clientChannel){
-            this.clientChannel=clientChannel;
+        public ReadCompletionHandler(AsynchronousSocketChannel clientChannel) {
+            this.clientChannel = clientChannel;
         }
 
         @Override
@@ -59,7 +60,7 @@ public class Server {
             if (bytesRead > 0) {
                 // Write the data back to the AsynchronousSocketChannel object
                 clientChannel.write(byteBuffer, clientChannel, new WriteCompletionHandler());
-                System.out.println("READ DATA "+bytesRead+" "+new String(byteBuffer.array(), Charset.defaultCharset()));
+                System.out.println("READ DATA " + bytesRead + " " + new String(byteBuffer.array(), Charset.defaultCharset()));
             }
         }
 
