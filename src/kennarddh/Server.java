@@ -6,10 +6,10 @@ import java.nio.ByteBuffer;
 import java.nio.channels.AsynchronousServerSocketChannel;
 import java.nio.channels.AsynchronousSocketChannel;
 import java.nio.channels.CompletionHandler;
+import java.nio.charset.Charset;
 
 public class Server {
     public static void main(String[] args) throws InterruptedException {
-        System.out.println("Server starting");
         try (AsynchronousServerSocketChannel serverSocketChannel = AsynchronousServerSocketChannel.open()) {
             // Bind the AsynchronousServerSocketChannel object to a local address and port
             try {
@@ -34,7 +34,10 @@ public class Server {
         public void completed(AsynchronousSocketChannel clientChannel, Void attachment) {
             // Read data from the AsynchronousSocketChannel object
             System.out.println("TCP Server New Client");
-            clientChannel.read(ByteBuffer.allocate(1024), clientChannel, new ReadCompletionHandler());
+
+            ByteBuffer byteBuffer = ByteBuffer.allocate(1024);
+
+            clientChannel.read(byteBuffer, byteBuffer, new ReadCompletionHandler(clientChannel));
         }
 
         @Override
@@ -44,18 +47,24 @@ public class Server {
         }
     }
 
-    private static class ReadCompletionHandler implements CompletionHandler<Integer, AsynchronousSocketChannel> {
+    private static class ReadCompletionHandler implements CompletionHandler<Integer, ByteBuffer> {
+        AsynchronousSocketChannel clientChannel;
+
+        public ReadCompletionHandler(AsynchronousSocketChannel clientChannel){
+            this.clientChannel=clientChannel;
+        }
+
         @Override
-        public void completed(Integer bytesRead, AsynchronousSocketChannel clientChannel) {
+        public void completed(Integer bytesRead, ByteBuffer byteBuffer) {
             if (bytesRead > 0) {
                 // Write the data back to the AsynchronousSocketChannel object
-                clientChannel.write(ByteBuffer.wrap(new byte[bytesRead]), clientChannel, new WriteCompletionHandler());
-                System.out.println("READ DATA");
+                clientChannel.write(byteBuffer, clientChannel, new WriteCompletionHandler());
+                System.out.println("READ DATA "+bytesRead+" "+new String(byteBuffer.array(), Charset.defaultCharset()));
             }
         }
 
         @Override
-        public void failed(Throwable exc, AsynchronousSocketChannel clientChannel) {
+        public void failed(Throwable exc, ByteBuffer byteBuffer) {
             throw new RuntimeException(exc);
         }
     }
