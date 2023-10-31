@@ -1,0 +1,17 @@
+plugins {
+    id "application"
+}
+
+apply plugin: 'java'
+
+version = '1.0'
+
+ext {
+    javaMainClass = "kennarddh.Main"
+}
+
+sourceSets.main.java.srcDirs = ["src/"]
+
+application {
+    mainClassName = javaMainClass
+}
