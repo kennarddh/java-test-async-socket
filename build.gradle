@@ -17,6 +17,6 @@ tasks.register("client", JavaExec) {
 }
 
 tasks.register("server", JavaExec) {
-    mainClass.set("kennarddh.Client")
+    mainClass.set("kennarddh.Server")
     classpath = sourceSets.main.runtimeClasspath
 }

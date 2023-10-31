@@ -9,8 +9,8 @@ import java.nio.channels.CompletionHandler;
 
 public class Server {
     public static void main(String[] args) throws InterruptedException {
+        System.out.println("Server starting");
         try (AsynchronousServerSocketChannel serverSocketChannel = AsynchronousServerSocketChannel.open()) {
-
             // Bind the AsynchronousServerSocketChannel object to a local address and port
             try {
                 serverSocketChannel.bind(new InetSocketAddress("localhost", 5656));
