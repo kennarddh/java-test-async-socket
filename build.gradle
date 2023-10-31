@@ -15,3 +15,5 @@ sourceSets.main.java.srcDirs = ["src/"]
 application {
     mainClassName = javaMainClass
 }
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
